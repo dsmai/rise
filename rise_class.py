@@ -10,6 +10,7 @@ class Rise:
         self.df = self.df.loc[self.df["Uri"].isin(vars)]
         self.vars = vars
         # process the 'OriginTime' column
+        # added comment
         self.df["OriginTime"] = pd.to_datetime(self.df["OriginTime"], format="%Y-%m-%dT%H:%M:%S.%fZ")
         self.df["OriginTime"] = (self.df["OriginTime"] - self.df["OriginTime"].min()).dt.total_seconds()
         self.df["Value"] = pd.to_numeric(self.df["Value"], errors="coerce")
